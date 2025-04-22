@@ -1,0 +1,52 @@
+def deposit(balance):
+    amount=int(input("Enter amount to deposit:"))
+    if amount>0:
+        balance+=amount
+        print(f"Deposited ${amount}.New balance ${balance}")
+    else:
+        print("Deposit amount must be greater than zero")
+    return balance
+
+def withdraw(balance):
+    amount=int(input("Enter amount to withdraw:"))
+    if amount>0:
+        if amount<=balance:
+            balance-=amount
+            print(f"Withdraw ${amount}.New balance ${balance}")
+        else:
+            print("Insufficient balance")
+    else:
+        print("Withdraw amont must be greater than zero")
+    return balance
+
+def view_balance(balance):
+    print(f"Your current balance is:${balance}")
+
+
+def main():
+    balance=0
+    while True:
+        print("*"*30)
+        print("1. Deposit")
+        print("2. Withdraw")
+        print("3. View Balance")
+        print("4. Exit")
+
+        choice=input("Choose an option:")
+        print("_"*30)
+        if choice=="1":
+            balance=deposit(balance)
+        elif choice=="2":
+            balance=withdraw(balance)
+        elif choice=="3":
+            balance=view_balance(balance)
+        elif choice=="4":
+            print("Thank you for using ATM.Visitagain")
+            break
+        else:
+            print("Invalid choice Please try again")
+
+
+
+if __name__ == "__main__":
+    main()
